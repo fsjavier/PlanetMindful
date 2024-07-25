@@ -1,13 +1,15 @@
 import React from "react";
 import Logo from "./Logo";
-import Navigation from "./Navigation";
+import TopbarDesktop from "./TopbarDesktop";
+import TopbarMobile from "./TopbarMobile";
 
 export default function Header() {
   return (
-    <header className="px-5 py-8">
+    <header className="px-5 py-8 bg-white shadow">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Logo />
-        <Navigation />
+        <TopbarDesktop />
+        <TopbarMobile />
       </div>
     </header>
   );

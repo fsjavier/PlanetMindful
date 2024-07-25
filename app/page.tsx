@@ -1,17 +1,3 @@
-interface FeatureCardProps {
-  title: string;
-  description: string;
-}
-
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description }) => {
-  return (
-    <div className="p-4 rounded shadow-box-md">
-      <h3 className="font-bold">{title}</h3>
-      <p>{description}</p>
-    </div>
-  );
-};
-
 export default function HomePage() {
   return (
     <>
@@ -40,31 +26,6 @@ export default function HomePage() {
           <div className="p-4 rounded shadow-box">
             <p>Summary of the first news item goes here...</p>
           </div>
-        </div>
-      </section>
-
-      {/* Second Section */}
-      <section className="px-8 py-12">
-        <h2 className="text-2xl font-bold mb-4 text-center">
-          Explore Our Features
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <FeatureCard
-            title="Local Data"
-            description="Discover climate data specific to your location."
-          />
-          <FeatureCard
-            title="Global Impact"
-            description="See how local actions affect the global climate."
-          />
-          <FeatureCard
-            title="Contributions"
-            description="Share your efforts and see what others are doing."
-          />
-          <FeatureCard
-            title="Resources"
-            description="Learn more about climate change and how to help."
-          />
         </div>
       </section>
     </>
