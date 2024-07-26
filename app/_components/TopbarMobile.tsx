@@ -3,6 +3,16 @@
 import { useState, useEffect } from "react";
 import LinkNavigation from "./LinkNavigation";
 
+const links = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Local Data", path: "/local-data" },
+  { name: "Global Impact", path: "/global-impact" },
+  { name: "Contributions", path: "/contributions" },
+  { name: "Resources", path: "/resources" },
+  { name: "Account", path: "/account" },
+];
+
 export default function TopnavbarMobile() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,10 +32,11 @@ export default function TopnavbarMobile() {
     <>
       {!isMobileMenuOpen && (
         <button
+          aria-label="toggle menu"
           onClick={toggleMobileMenu}
           className="p-2 rounded-full focus:outline-none text-2xl md:hidden text-primary-950"
         >
-          <span className="sr-only">Toggle menu</span>☰
+          ☰
         </button>
       )}
       {isMobileMenuOpen && (
@@ -38,53 +49,16 @@ export default function TopnavbarMobile() {
           </button>
           <nav className="p-4">
             <ul className="space-y-4 text-center">
-              <li>
-                <LinkNavigation to="/" onClickHandler={toggleMobileMenu}>
-                  Home
-                </LinkNavigation>
-              </li>
-              <li>
-                <LinkNavigation to="/about" onClickHandler={toggleMobileMenu}>
-                  About
-                </LinkNavigation>
-              </li>
-              <li>
-                <LinkNavigation
-                  to="/local-data"
-                  onClickHandler={toggleMobileMenu}
-                >
-                  Local Data
-                </LinkNavigation>
-              </li>
-              <li>
-                <LinkNavigation
-                  to="/global-impact"
-                  onClickHandler={toggleMobileMenu}
-                >
-                  Global Impact
-                </LinkNavigation>
-              </li>
-              <li>
-                <LinkNavigation
-                  to="/contributions"
-                  onClickHandler={toggleMobileMenu}
-                >
-                  Contributions
-                </LinkNavigation>
-              </li>
-              <li>
-                <LinkNavigation
-                  to="/resources"
-                  onClickHandler={toggleMobileMenu}
-                >
-                  Resources
-                </LinkNavigation>
-              </li>
-              <li>
-                <LinkNavigation to="/account" onClickHandler={toggleMobileMenu}>
-                  Account
-                </LinkNavigation>
-              </li>
+              {links.map((link) => (
+                <li key={link.name}>
+                  <LinkNavigation
+                    to={link.path}
+                    onClickHandler={toggleMobileMenu}
+                  >
+                    {link.name}
+                  </LinkNavigation>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
