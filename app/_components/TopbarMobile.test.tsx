@@ -13,13 +13,13 @@ const links = [
 ];
 
 describe("TopnavbarMobile", () => {
-  test("initial render: menu button is visible", () => {
+  test("menu button is visible in initial render", () => {
     render(<TopnavbarMobile />);
     const menuButton = screen.getByRole("button", { name: /toggle menu/i });
     expect(menuButton).toBeInTheDocument();
   });
 
-  test("toggle menu: clicking the menu button opens the menu", async () => {
+  test("clicking the menu button opens the menu", async () => {
     render(<TopnavbarMobile />);
     const menuButton = screen.getByRole("button", { name: /toggle menu/i });
     await userEvent.click(menuButton);
@@ -43,7 +43,7 @@ describe("TopnavbarMobile", () => {
     });
   });
 
-  test("close menu: clicking the close button closes the menu", async () => {
+  test("clicking the close button closes the menu", async () => {
     render(<TopnavbarMobile />);
     const menuButton = screen.getByRole("button", { name: /toggle menu/i });
     await userEvent.click(menuButton);
@@ -59,7 +59,7 @@ describe("TopnavbarMobile", () => {
     ).toBeInTheDocument();
   });
 
-  test("menu links: clicking a link closes the menu", async () => {
+  test("clicking a link closes the menu", async () => {
     render(<TopnavbarMobile />);
     const menuButton = screen.getByRole("button", { name: /toggle menu/i });
     await userEvent.click(menuButton);

@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import LinkNavigation from "./LinkNavigation";
+
+const links = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Local Data", path: "/local-data" },
+  { name: "Global Impact", path: "/global-impact" },
+  { name: "Contributions", path: "/contributions" },
+  { name: "Resources", path: "/resources" },
+];
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,42 +36,13 @@ export default function Sidebar() {
         </button>
         <nav className={`flex-1 ${isOpen ? "block" : "hidden"}`}>
           <ul className="space-y-4 py-4 px-8">
-            <li>
-              <LinkNavigation to="/" onClickHandler={toggleSidebar}>
-                Home
-              </LinkNavigation>
-            </li>
-            <li>
-              <LinkNavigation to="/about" onClickHandler={toggleSidebar}>
-                About
-              </LinkNavigation>
-            </li>
-            <li>
-              <LinkNavigation to="/local-data" onClickHandler={toggleSidebar}>
-                Local Data
-              </LinkNavigation>
-            </li>
-            <li>
-              <LinkNavigation
-                to="/global-impact"
-                onClickHandler={toggleSidebar}
-              >
-                Global Impact
-              </LinkNavigation>
-            </li>
-            <li>
-              <LinkNavigation
-                to="/contributions"
-                onClickHandler={toggleSidebar}
-              >
-                Contributions
-              </LinkNavigation>
-            </li>
-            <li>
-              <LinkNavigation to="/resources" onClickHandler={toggleSidebar}>
-                Resources
-              </LinkNavigation>
-            </li>
+            {links.map((link) => (
+              <li key={link.name}>
+                <LinkNavigation to={link.path} onClickHandler={toggleSidebar}>
+                  {link.name}
+                </LinkNavigation>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
