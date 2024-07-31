@@ -15,6 +15,51 @@ body {
   @apply text-neutral-900;
 }
 
+/* styles/newsTicker.css */
+.news-ticker {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.news-ticker-wrapper {
+  display: flex;
+  width: max-content;
+  animation: ticker 60s linear infinite;
+}
+
+.news-ticker-wrapper:hover {
+  animation-play-state: paused;
+}
+
+.news-item {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.news-item a {
+  text-decoration: none;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
