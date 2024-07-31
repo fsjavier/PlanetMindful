@@ -11,9 +11,6 @@ export default function TopbarDesktop() {
             <LinkNavigation to={link.path}>{link.name}</LinkNavigation>
           </li>
         ))}
-        {/* <li>
-          <LinkNavigation to="/account">Account</LinkNavigation>
-        </li> */}
       </ul>
     </nav>
   );
