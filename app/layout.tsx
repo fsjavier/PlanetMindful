@@ -18,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito.className} flex min-h-screen`}>
+      <body className={`${nunito.className} flex min-h-screen max-w-screen`}>
         <Sidebar />
-        <div className="flex flex-1 flex-col">
+        <div className="flex flex-1 flex-col overflow-hidden">
           <Header />
           <main className=" flex-1 px-8 py-5 gap-6">{children}</main>
         </div>
