@@ -11,11 +11,15 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
+    "@auth/firebase-adapter": "^2.4.2",
+    "@heroicons/react": "^2.1.5",
     "@types/jest": "^29.5.12",
+    "@types/next-auth": "^3.15.0",
     "axios": "^1.7.2",
     "chart.js": "^4.4.3",
     "date-fns": "^3.6.0",
     "firebase": "^10.12.3",
+    "firebase-admin": "^11.11.1",
     "next": "14.2.5",
     "next-auth": "^5.0.0-beta.19",
     "react": "^18",
