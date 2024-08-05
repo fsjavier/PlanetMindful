@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import LinkNavigation from "./LinkNavigation";
+import { UserIcon } from "@heroicons/react/24/solid";
 
 const links = [
   { name: "Home", path: "/" },
@@ -10,7 +11,11 @@ const links = [
   { name: "Global Impact", path: "/global-impact" },
   { name: "Contributions", path: "/contributions" },
   { name: "Resources", path: "/resources" },
-  { name: "Account", path: "/account" },
+  {
+    name: "Account",
+    path: "/account",
+    icon: <UserIcon className="h-8 w-8 text-primary-400" />,
+  },
 ];
 
 export default function TopnavbarMobile() {
@@ -54,8 +59,10 @@ export default function TopnavbarMobile() {
                   <LinkNavigation
                     to={link.path}
                     onClickHandler={toggleMobileMenu}
+                    className={"flex gap-2 items-center"}
                   >
-                    {link.name}
+                    <span className="inline-block">{link.icon}</span>
+                    <span className="inline-block">{link.name}</span>
                   </LinkNavigation>
                 </li>
               ))}

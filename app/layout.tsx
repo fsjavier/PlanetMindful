@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Planet mindfu",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
