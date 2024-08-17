@@ -1,9 +1,10 @@
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
+import authConfig from "./auth.config";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { firestore } from "./firestore";
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Google],
+export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: FirestoreAdapter(firestore),
+  session: { strategy: "jwt" },
+  ...authConfig,
 });
