@@ -12,11 +12,11 @@ import TotalImpact from "./_components/TotalImpact";
 import CardChart from "./_components/CardChart";
 import ClimateNews from "./_components/ClimateNews";
 import PageHeader from "./_components/PageHeader";
-import { SignIn } from "./_components/SigninButton";
 import { auth } from "./_lib/auth";
 import { SignInResend } from "./_components/SigninResend";
 
 export default async function HomePage() {
+  const session = auth();
   const climateNews: NewsArticle[] = await fetchClimateNews();
   const duplicatedNews = [...climateNews, ...climateNews];
   const { totalCO2Saved, totalEnergySaved, totalWaterSaved } =
@@ -24,13 +24,9 @@ export default async function HomePage() {
   const contributions: Contribution[] = await fetchFakeContributions();
   const progressData: ProgressData[] = await fetchFakeProgressData();
 
-  const session = await auth();
-  console.log(session?.user);
-
   return (
     <main className="grid grid-cols-1 gap-6 p-4 md:grid-cols-2 lg:grid-cols-3 lg:p-6">
       <PageHeader>Planet Mindful</PageHeader>
-      <SignIn />
       <SignInResend />
       <TotalImpact
         totalCO2Saved={totalCO2Saved}

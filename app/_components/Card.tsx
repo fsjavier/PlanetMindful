@@ -8,10 +8,12 @@ interface CardProps {
 
 interface CardHeaderProps {
   children: ReactNode;
+  className?: string;
 }
 
 interface CardTitleProps {
   children: ReactNode;
+  className?: string;
 }
 
 interface CardContentProps {
@@ -27,12 +29,12 @@ export function Card({ children, className }: CardProps) {
   );
 }
 
-export function CardHeader({ children }: CardHeaderProps) {
-  return <div className="mb-4">{children}</div>;
+export function CardHeader({ children, className }: CardHeaderProps) {
+  return <div className={`mb-4 ${className}`}>{children}</div>;
 }
 
-export function CardTitle({ children }: CardTitleProps) {
-  return <h2 className="text-xl font-bold">{children}</h2>;
+export function CardTitle({ children, className }: CardTitleProps) {
+  return <h2 className={`text-xl font-bold ${className}`}>{children}</h2>;
 }
 
 export function CardContent({ children, className }: CardContentProps) {
